@@ -13,7 +13,7 @@ import seasenselib as ssl
 
 
 FORMAT_KEY = "sbe-cnv-seabirdscientific"
-PACKAGE_NAME = "seasenselib-reader-seabirdscientific"
+PACKAGE_NAME = "seasenselib-seabirdscientific"
 
 
 def test_installed_distribution_declares_agpl() -> None:

@@ -29,7 +29,6 @@ import xarray as xr
 
 import seasenselib.parameters as params
 from seasenselib.readers.base import AbstractReader
-from seasenselib.readers.utils.conductivity_units import infer_conductivity_unit
 
 
 logger = logging.getLogger(__name__)
@@ -1114,37 +1113,6 @@ class SbeCnvSeabirdScientificReader(AbstractReader):
             "other": {"sanitization": list(header.sanitizations)},
         }
 
-    @staticmethod
-    def _verify_conductivity_units(dataset: xr.Dataset) -> None:
-        """Warn if values conflict with a declared conductivity unit.
-
-        This check never changes data or units. It only surfaces a possible
-        source inconsistency for review by the normal SeaSenseLib pipeline.
-        """
-        conductivity_names = {
-            "c0mS/cm",
-            "c0S/m",
-            "c1mS/cm",
-            "c1S/m",
-            "cond0S/m",
-            "cond1S/m",
-            "cond0mS/cm",
-            "cond1mS/cm",
-        }
-        for name in dataset.data_vars:
-            original = dataset[name].attrs.get("cnv_original_name", name)
-            declared = dataset[name].attrs.get("units", "")
-            if original not in conductivity_names or not declared:
-                continue
-            try:
-                infer_conductivity_unit(dataset[name].values, declared=declared)
-            except ValueError as exc:
-                logger.warning(
-                    "Could not verify conductivity units for '%s': %s",
-                    name,
-                    exc,
-                )
-
     def _load_data(self) -> xr.Dataset:
         """Decode the CNV source and construct the unmapped xarray dataset."""
         source_path = Path(self.input_file)
@@ -1248,7 +1216,6 @@ class SbeCnvSeabirdScientificReader(AbstractReader):
             }
 
         self._assign_global_metadata(dataset, header, backend, version)
-        self._verify_conductivity_units(dataset)
         return dataset
 
     @classmethod
