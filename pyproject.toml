@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "seasenselib-reader-seabirdscientific"
+version = "0.1.0"
+description = "SeaSenseLib CNV reader plugin based on seabirdscientific"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "AGPL-3.0-only"
+license-files = ["LICENSE"]
+authors = [{ name = "Yves Sorge" }]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Scientific/Engineering :: Oceanography",
+]
+dependencies = [
+  "seasenselib>=0.6.0",
+  "seabirdscientific>=2.7.0",
+  "numpy",
+  "pandas",
+  "xarray",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.entry-points."seasenselib.readers"]
+sbe-cnv-seabirdscientific = "seasenselib_sbe_cnv_seabird:SbeCnvSeabirdScientificReader"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
