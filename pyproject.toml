@@ -7,22 +7,43 @@ name = "seasenselib-seabirdscientific"
 version = "0.1.0"
 description = "SeaSenseLib CNV reader plugin based on seabirdscientific"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = "AGPL-3.0-only"
 license-files = ["LICENSE"]
 authors = [{ name = "Yves Sorge" }]
+keywords = [
+  "CF conventions",
+  "CNV",
+  "CTD",
+  "oceanography",
+  "Sea-Bird Scientific",
+  "seabirdscientific",
+  "SeaSenseLib",
+]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "Topic :: Scientific/Engineering :: Oceanography",
 ]
 dependencies = [
   "seasenselib>=0.6.0",
-  "seabirdscientific>=2.7.0",
+  "seabirdscientific==2.7.8",
   "numpy",
   "pandas",
   "xarray",
 ]
+
+[project.urls]
+Homepage = "https://github.com/ysorge/seasenselib-seabirdscientific"
+Repository = "https://github.com/ysorge/seasenselib-seabirdscientific"
+Issues = "https://github.com/ysorge/seasenselib-seabirdscientific/issues"
+"SeaSenseLib repository" = "https://github.com/ocean-uhh/seasenselib"
+"SeaSenseLib on PyPI" = "https://pypi.org/project/seasenselib/"
+"SeaSenseLib DOI" = "https://doi.org/10.5281/zenodo.20044197"
 
 [project.optional-dependencies]
 test = ["pytest"]

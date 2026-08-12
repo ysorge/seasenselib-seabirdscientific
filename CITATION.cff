@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: >-
+  If you use this plugin, cite this software and the referenced SeaSenseLib
+  software.
+type: software
+title: SeaSenseLib CNV reader based on seabirdscientific
+authors:
+  - family-names: Sorge
+    given-names: Yves
+version: 0.1.0
+license: AGPL-3.0-only
+repository-code: https://github.com/ysorge/seasenselib-seabirdscientific
+url: https://github.com/ysorge/seasenselib-seabirdscientific
+keywords:
+  - CNV
+  - CTD
+  - oceanography
+  - Sea-Bird Scientific
+  - seabirdscientific
+  - SeaSenseLib
+references:
+  - type: software
+    title: SeaSenseLib
+    authors:
+      - family-names: Sorge
+        given-names: Yves
+      - family-names: Frajka-Williams
+        given-names: Eleanor
+      - family-names: Schmitz
+        given-names: Isabelle
+    doi: 10.5281/zenodo.20044197
+    repository-code: https://github.com/ocean-uhh/seasenselib
+    url: https://pypi.org/project/seasenselib/
