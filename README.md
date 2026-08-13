@@ -15,14 +15,9 @@ deterministic time handling, metadata and provenance.
 
 ## Installation
 
-The currently supported Python versions are 3.10 through 3.13. Python 3.9
-cannot resolve SeaSenseLib 0.6.0's `mhkit>=1.0.0` dependency.
-
-The plugin currently requires `seabirdscientific==2.7.8`. Versions
-2.7.9 and 2.7.10 constrain SciPy to `~=1.13.1`, which conflicts with the
-`scipy>=1.14.0` requirement of MHKiT 1.x; SciPy 1.13.1 also has no Python 3.13
-wheel. The exact pin keeps installation and regression results reproducible
-until a newer compatible manufacturer release has passed the complete corpus.
+The currently supported Python versions are 3.10 through 3.13. See
+[Known limitations](#known-limitations) for the constraints that determine
+this range.
 
 ```bash
 python -m pip install .
@@ -77,6 +72,16 @@ class.
   rollover across New Year is not inferred.
 - The strict validation pass makes the reader slower than the
   pycnv-backed reader on large files.
+- Python 3.9 is not supported because SeaSenseLib 0.6.0 requires
+  `mhkit>=1.0.0` (for Sea-Bird HEX reader), whose available releases require Python 3.10 or newer.
+- The plugin currently requires exactly `seabirdscientific==2.7.8`.
+  Versions 2.7.9 and 2.7.10 constrain SciPy to `~=1.13.1`, which conflicts
+  with the `scipy>=1.14.0` requirement of MHKiT 1.x. SciPy 1.13.1 also has no
+  Python 3.13 wheel. The pin must remain until a newer compatible manufacturer
+  release has passed the complete regression corpus.
+- Python 3.13 is covered by this plugin's CI and its dependency graph resolves
+  to binary wheels, but `seabirdscientific` 2.7.8 does not explicitly list
+  Python 3.13 in its PyPI classifiers.
 
 ## Related project and citation
 
