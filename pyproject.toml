@@ -31,7 +31,7 @@ classifiers = [
 ]
 dependencies = [
   "seasenselib>=0.6.0",
-  "seabirdscientific==2.7.8",
+  "seabirdscientific==2.7.10",
   "numpy",
   "pandas",
   "xarray",
