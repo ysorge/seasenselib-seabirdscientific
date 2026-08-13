@@ -1,8 +1,7 @@
 # Copyright (C) 2026 Yves Sorge
 # SPDX-License-Identifier: AGPL-3.0-only
-# Portions derived from SeaSenseLib; see NOTICE.
 
-"""Beta CNV reader backed by :mod:`seabirdscientific`.
+"""Beta SeaSenseLib CNV reader backed by :mod:`seabirdscientific`.
 
 ``seabirdscientific`` deliberately provides a small CNV value parser.  This
 module keeps that parser as the decoding backend and adds the format handling

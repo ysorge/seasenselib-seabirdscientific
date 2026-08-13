@@ -49,7 +49,7 @@ Issues = "https://github.com/ysorge/seasenselib-seabirdscientific/issues"
 test = ["pytest"]
 
 [project.entry-points."seasenselib.readers"]
-sbe-cnv-seabirdscientific = "seasenselib_sbe_cnv_seabird:SbeCnvSeabirdScientificReader"
+sbe-cnv-seabirdscientific = "seasenselib_seabirdscientific:SbeCnvSeabirdScientificReader"
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -55,7 +55,7 @@ def test_reader_is_discovered_as_plugin() -> None:
 
     reader_class = get_reader_by_format_key(FORMAT_KEY)
     assert reader_class is not None
-    assert reader_class.__module__ == "seasenselib_sbe_cnv_seabird.reader"
+    assert reader_class.__module__ == "seasenselib_seabirdscientific.reader"
 
 
 def test_public_api_reads_cnv_with_plugin(tmp_path: Path) -> None:
